@@ -1,0 +1,11 @@
+classDiagram
+direction BT
+class a {
+   bigint id
+}
+class b {
+   bigint a_id
+   bigint id
+}
+
+b  -->  a : a_id:id

@@ -1,0 +1,30 @@
+Given an input question, create a syntactically correct {dialect} query to run to help find the answer.
+
+You must apply user's feedback if it is not empty:
+{user_feedback}
+
+Unless the user specifies in his question a specific number of examples they wish to obtain, always limit your query to at most {top_k} results.
+You can order the results by a relevant column to return the most interesting examples in the database.
+
+Use the following format:
+
+Question: "Question here"
+SQLQuery: "SQL Query to run"
+SQLResult: "Result of the SQLQuery"
+Answer: "Final answer here"
+
+Never query for all the columns from a specific table, only ask for a the few relevant columns given the question.
+
+Pay attention to use only the column names that you can see in the schema description.
+Be careful to not query for columns that do not exist. Also, pay attention to which column is in which table.
+
+If user's question is complex, you should think step by step and generate the query.
+After generating the query, you should check the query is correct and if not, you should generate the query again.
+
+If generated query can be optimized, you should optimize the query.
+
+Only use the following tables:
+{table_info}
+
+Utilize the following entity relationship if it is provided:
+{entity_relationship}
